@@ -1,0 +1,203 @@
+:root{
+   /* Variables */
+   --bounceEffect: cubic-bezier(.08,.12,.06,1.28);
+}
+*{
+   font-family: sans-serif, Courier, monospace;
+}
+body, html{
+   height: 100%;
+   width: 100%;
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+body{
+   background-color: rgb(197, 197, 197);
+   overflow: hidden;
+}
+.container{
+   width: 300px;
+   height: 60px;
+   background-color: #fff;
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   transform: translateX(-50%);
+   border-radius: 7px;
+   box-shadow: 3px 3px 25px grey;
+   overflow: hidden;
+   animation: containerTo30 .3s var(--bounceEffect) .5s forwards,
+              containerTo15 .6s var(--bounceEffect) 4.7s forwards;
+   opacity: 0;
+   z-index: 1;
+}
+.photo{
+   width: 50px;
+   display: block;
+   border-radius: 50%;
+   position: absolute;
+   top: 50%;
+   left: -50px;
+   transform: translateY(-50%);
+   animation: imageToRight .3s var(--bounceEffect) 2.6s forwards;
+}
+.name{
+   position: absolute;
+   top: 100%;
+   left: 20px;
+   opacity: 0;
+   animation: nameTo35 .3s var(--bounceEffect) 1.2s forwards,
+              nameTo20 .3s var(--bounceEffect) 2s forwards,
+              contentToRight .3s var(--bounceEffect) 2.6s forwards;
+   font-weight: bold;
+   color: rgb(61, 61, 61);
+}
+.profession{
+   font-size: .8em;
+   position: absolute;
+   top: 100%;
+   left: 20px;
+   color: rgb(61, 61, 61);
+   animation: professionToTop .3s var(--bounceEffect) 1.9s forwards,
+              contentToRight .3s var(--bounceEffect) 2.7s forwards;
+   opacity: 0;
+}
+.btn-follow{
+   color: white;
+   width: 85px;
+   height: 35px;
+   font-size: .85em;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-decoration: none;
+   box-shadow: 2px 2px 20px grey;
+   position: absolute;
+   top: 100%;
+   transform: translateY(-50%);
+   right: 10px;
+   background-color: darkred;
+   animation: buttonToTop .3s var(--bounceEffect) 3.3s forwards;
+   opacity: 0;
+}
+@keyframes containerTo30{
+   20%{
+      opacity: 0;
+   }
+   100%{
+      top: 30%;
+      opacity: 1;
+   }
+}
+@keyframes nameTo35{
+   20%{
+      opacity: 0;
+   }
+   100%{
+      top: 35%;
+      opacity: 1;
+   }
+}
+@keyframes nameTo20{
+   from{
+      top: 35%;
+   }
+   to{
+      top: 20%;
+   }
+}
+@keyframes professionToTop{
+   20%{
+      opacity: 0;
+   }
+   100%{
+      top: 30px;
+      opacity: 1;
+   }
+}
+@keyframes buttonToTop{
+   20%{
+      opacity: 0;
+   }
+   100%{
+      top: 50%;
+      opacity: 1;
+   }
+}
+@keyframes contentToRight{
+   to{
+      left: 65px;
+   }
+}
+@keyframes imageToRight{
+   to{
+      left: 5px;
+   }
+}
+@keyframes containerTo15{
+   from{
+      top: 30%;
+   }
+   to{
+      top: 15%;
+      box-shadow: 0 0 0 transparent;
+   }
+}
+.phone-background{
+   max-width: 380px;
+   width: 100%;
+   background-color: #fff;
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+   box-shadow: 0 0 15px rgb(165, 165, 165);
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   bottom: 0;
+   transform: translateX(-50%);
+   opacity: 0;
+   animation: showPhoneBackground .3s var(--bounceEffect) 4s forwards;
+}
+.phone-background::after{
+   position: absolute;
+   content: "";
+   bottom: 0;
+   height: 25%;
+   width: 100%;
+   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.322), #ffffff00);
+}
+@keyframes showPhoneBackground{
+   to{
+      opacity: 1;
+      top: 10%;
+   }
+}
+.some-projects{
+   width: 80%;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 120px;
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+}
+.project{
+   width: 45%;
+   height: 90px;
+   background-color: rgb(255, 130, 130);
+   margin-bottom: 10px;
+   border-radius: 5px;
+   transform: scale(0);
+}
+.project:nth-child(odd){
+   animation: scaleUp .4s var(--bounceEffect) 5.3s forwards;
+}
+.project:nth-child(even){
+   animation: scaleUp .4s var(--bounceEffect) 5.5s forwards;
+}
+@keyframes scaleUp{
+   to{
+      transform: scale(1);
+   }
+}
